@@ -1,0 +1,75 @@
+If you want to create a program that uses a builder pattern without explicitly creating an object of the builder class, you can achieve this by using a static factory method inside the class you want to build. Here's an example demonstrating this approach:
+
+```java
+public class Product {
+    private String name;
+    private int price;
+    private String description;
+
+    private Product() {
+        // Private constructor to enforce the use of the builder.
+    }
+
+    // Getter methods for the fields (omitted for brevity).
+
+    public static class Builder {
+        private String name;
+        private int price;
+        private String description;
+
+        private Builder() {
+            // Initialize with default values if needed.
+        }
+
+        public static Builder create() {
+            return new Builder();
+        }
+
+        public Builder name(String name) {
+            this.name = name;
+            return this;
+        }
+
+        public Builder price(int price) {
+            this.price = price;
+            return this;
+        }
+
+        public Builder description(String description) {
+            this.description = description;
+            return this;
+        }
+
+        public Product build() {
+            Product product = new Product();
+            product.name = this.name;
+            product.price = this.price;
+            product.description = this.description;
+            return product;
+        }
+    }
+}
+```
+
+With this approach, you can create a `Product` instance using the builder without explicitly creating an object of the builder class. Here's how you can do it:
+
+```java
+public class BuilderPatternExample {
+    public static void main(String[] args) {
+        Product product1 = Product.Builder.create()
+            .name("Product 1")
+            .price(100)
+            .description("A sample product")
+            .build();
+
+        Product product2 = Product.Builder.create()
+            .name("Product 2")
+            .price(200)
+            .build();
+
+        // You have created product1 and product2 using the builder.
+    }
+}
+```
+
+In this example, the static `create` method within the `Builder` class is used to obtain an instance of the builder, and then you can chain the setter methods and call `build()` to create the `Product` instance without explicitly creating an object of the builder class.

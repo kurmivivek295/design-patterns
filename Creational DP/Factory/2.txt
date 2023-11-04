@@ -1,0 +1,19 @@
+what is the problem factory design patter resolves exaplain with examples in layman terms
+
+Answer:
+=======
+The Factory Design Pattern is like a magic machine in a toy factory. Imagine you have a toy factory that makes all sorts of toys like cars, dolls, and robots. Each toy is unique, and making them is quite complicated. 
+
+Now, here's the problem: When a customer comes to your factory and asks for a specific toy, you could spend a lot of time trying to figure out how to make that toy from scratch. This would be like trying to build a car, doll, or robot from raw materials every time a customer places an order. It's slow, error-prone, and not efficient.
+
+Here's where the Factory Design Pattern comes in to solve this problem:
+
+1. **Standardized Toy Making Process:** With the Factory Pattern, you create a set of machines (factories) that know how to make each type of toy. For example, there's a Car Factory, a Doll Factory, and a Robot Factory.
+
+2. **Order and Delivery:** When a customer wants a specific toy, you just tell the right factory to make it. So, if they want a car, you tell the Car Factory to make one. The factory knows exactly how to build that type of toy.
+
+3. **Consistency:** Because each factory knows how to make only one type of toy, you can be sure that all the cars, dolls, or robots coming out of that factory are consistent and have the same features.
+
+4. **Flexibility:** If you want to introduce a new type of toy, you just create a new factory for it. For instance, if you want to start making airplanes, you set up an Airplane Factory.
+
+So, in simple terms, the Factory Design Pattern helps toy factories (or software programs) efficiently produce different types of toys (objects) by organizing the process, ensuring consistency, and making it easy to add new types of toys without causing chaos in the factory. It's like having specialized machines that can produce specific toys quickly and reliably.

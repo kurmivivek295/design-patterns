@@ -1,0 +1,91 @@
+explain factory design pattern in java with example
+
+Answer:
+=======
+The Factory Method Pattern is a creational design pattern that provides an interface for creating objects but allows subclasses to alter the type of objects that will be created. It promotes loose coupling between the creator (factory) and the objects it creates, making it a flexible way to create objects. Let's explain the Factory Method Pattern in Java with a simple example:
+
+**Example: Creating Shapes**
+
+Suppose you are building a drawing application, and you want to create different types of shapes, such as circles and rectangles. Instead of creating these shapes directly in your code, you can use the Factory Method Pattern to create them through a factory.
+
+Here's how you can implement it:
+
+1. Define an interface for the shape:
+
+```java
+// Shape.java
+public interface Shape {
+    void draw();
+}
+```
+
+2. Create concrete classes that implement the shape interface:
+
+```java
+// Circle.java
+public class Circle implements Shape {
+    @Override
+    public void draw() {
+        System.out.println("Drawing a Circle");
+    }
+}
+
+// Rectangle.java
+public class Rectangle implements Shape {
+    @Override
+    public void draw() {
+        System.out.println("Drawing a Rectangle");
+    }
+}
+```
+
+3. Create a factory interface that declares the factory method:
+
+```java
+// ShapeFactory.java
+public interface ShapeFactory {
+    Shape createShape();
+}
+```
+
+4. Implement concrete factories for each type of shape:
+
+```java
+// CircleFactory.java
+public class CircleFactory implements ShapeFactory {
+    @Override
+    public Shape createShape() {
+        return new Circle();
+    }
+}
+
+// RectangleFactory.java
+public class RectangleFactory implements ShapeFactory {
+    @Override
+    public Shape createShape() {
+        return new Rectangle();
+    }
+}
+```
+
+5. Now, you can use the factory to create shapes without knowing the exact type of shape being created:
+
+```java
+public class DrawingApplication {
+    public static void main(String[] args) {
+        // Create a circle using the CircleFactory
+        ShapeFactory circleFactory = new CircleFactory();
+        Shape circle = circleFactory.createShape();
+        circle.draw();
+        
+        // Create a rectangle using the RectangleFactory
+        ShapeFactory rectangleFactory = new RectangleFactory();
+        Shape rectangle = rectangleFactory.createShape();
+        rectangle.draw();
+    }
+}
+```
+
+In this example, we've used the Factory Method Pattern to create shapes without needing to know the specific implementation details of each shape. This separation of concerns allows you to add new shape types or modify existing ones without affecting the rest of your code, making it more maintainable and extensible.
+
+In summary, the Factory Method Pattern in Java is a design pattern that encapsulates object creation by providing an interface for creating objects and allowing subclasses or concrete factories to implement the creation logic. It's a useful pattern for decoupling the client code from the concrete classes being created, promoting flexibility and maintainability in your software.

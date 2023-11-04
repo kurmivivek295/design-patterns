@@ -1,0 +1,89 @@
+Creating a Builder Pattern with a static inner class in Java is a common approach to building complex objects with many optional parameters while ensuring immutability and a clean, fluent API. Here's how to implement it step by step:
+
+**Step 1: Create the Class to Be Built**
+
+First, create the class for which you want to create the builder. This class should have private fields and a private constructor.
+
+```java
+public class Product {
+    private String name;
+    private int price;
+    private String description;
+
+    private Product() {
+        // Private constructor to enforce the use of the builder.
+    }
+
+    // Getter methods for the fields (omitted for brevity).
+}
+```
+
+**Step 2: Create a Static Inner Builder Class**
+
+Inside the `Product` class, create a static inner class called `Builder`. This class will contain methods for setting the optional parameters and a `build` method to create the `Product` instance.
+
+```java
+public class Product {
+    // ... Fields and private constructor (from Step 1)
+
+    public static class Builder {
+        private String name;
+        private int price;
+        private String description;
+
+        public Builder() {
+            // Initialize with default values if needed.
+        }
+
+        public Builder name(String name) {
+            this.name = name;
+            return this;
+        }
+
+        public Builder price(int price) {
+            this.price = price;
+            return this;
+        }
+
+        public Builder description(String description) {
+            this.description = description;
+            return this;
+        }
+
+        public Product build() {
+            Product product = new Product();
+            product.name = this.name;
+            product.price = this.price;
+            product.description = this.description;
+            return product;
+        }
+    }
+}
+```
+
+**Step 3: Using the Builder to Create Objects**
+
+Now, you can use the builder to create `Product` objects in a fluent manner.
+
+```java
+public class BuilderPatternExample {
+    public static void main(String[] args) {
+        Product product1 = new Product.Builder()
+            .name("Product 1")
+            .price(100)
+            .description("A sample product")
+            .build();
+
+        Product product2 = new Product.Builder()
+            .name("Product 2")
+            .price(200)
+            .build();
+
+        // You can now work with product1 and product2.
+    }
+}
+```
+
+Using the Builder Pattern with a static inner class allows you to create `Product` objects step by step, setting only the optional parameters you need, while keeping the `Product` class immutable.
+
+This pattern is particularly useful when you have classes with many optional parameters, making it easy for clients to create instances with different configurations.

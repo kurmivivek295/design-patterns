@@ -1,0 +1,127 @@
+Certainly! Here's a Java code example that illustrates the Factory Pattern and the Abstract Factory Pattern using the analogy of shapes and colors:
+
+**Factory Pattern - Creating Shapes:**
+
+```java
+// Shape interface
+interface Shape {
+    void draw();
+}
+
+// Concrete shapes
+class Circle implements Shape {
+    @Override
+    public void draw() {
+        System.out.println("Drawing a circle");
+    }
+}
+
+class Rectangle implements Shape {
+    @Override
+    public void draw() {
+        System.out.println("Drawing a rectangle");
+    }
+}
+
+// Shape Factory
+class ShapeFactory {
+    public static Shape createShape(String shapeType) {
+        if (shapeType.equalsIgnoreCase("circle")) {
+            return new Circle();
+        } else if (shapeType.equalsIgnoreCase("rectangle")) {
+            return new Rectangle();
+        }
+        return null;
+    }
+}
+
+// Client code using the Factory Pattern
+public class FactoryPatternExample {
+    public static void main(String[] args) {
+        Shape circle = ShapeFactory.createShape("circle");
+        Shape rectangle = ShapeFactory.createShape("rectangle");
+
+        circle.draw();     // Output: Drawing a circle
+        rectangle.draw();  // Output: Drawing a rectangle
+    }
+}
+```
+
+In this example, the `ShapeFactory` creates different shapes (Circle and Rectangle) using a factory method based on the type of shape requested.
+
+**Abstract Factory Pattern - Creating Shapes and Colors:**
+
+```java
+// Abstract factory interfaces
+interface Shape {
+    void draw();
+}
+
+interface Color {
+    void fill();
+}
+
+// Concrete shapes
+class Circle implements Shape {
+    @Override
+    public void draw() {
+        System.out.println("Drawing a circle");
+    }
+}
+
+class Rectangle implements Shape {
+    @Override
+    public void draw() {
+        System.out.println("Drawing a rectangle");
+    }
+}
+
+// Concrete colors
+class Red implements Color {
+    @Override
+    public void fill() {
+        System.out.println("Filling with red color");
+    }
+}
+
+class Blue implements Color {
+    @Override
+    public void fill() {
+        System.out.println("Filling with blue color");
+    }
+}
+
+// Abstract Factory
+interface AbstractFactory {
+    Shape createShape();
+    Color createColor();
+}
+
+// Concrete Artistic Factory
+class ArtisticFactory implements AbstractFactory {
+    @Override
+    public Shape createShape() {
+        return new Circle(); // An artistic factory creates circles
+    }
+
+    @Override
+    public Color createColor() {
+        return new Red(); // An artistic factory uses red color
+    }
+}
+
+// Client code using the Abstract Factory Pattern
+public class AbstractFactoryPatternExample {
+    public static void main(String[] args) {
+        AbstractFactory artisticFactory = new ArtisticFactory();
+
+        Shape shape = artisticFactory.createShape();
+        Color color = artisticFactory.createColor();
+
+        shape.draw();   // Output: Drawing a circle
+        color.fill();   // Output: Filling with red color
+    }
+}
+```
+
+In this example, the `AbstractFactory` defines two methods, `createShape()` and `createColor()`, which are implemented by the `ArtisticFactory`. The `ArtisticFactory` creates related objects, a Circle and a Red color, ensuring they have a consistent style.

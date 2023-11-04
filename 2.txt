@@ -1,0 +1,27 @@
+What are Creational Patterns please list out all of them
+
+Answer:
+=======
+Creational design patterns are a subset of design patterns that deal with object creation mechanisms, trying to create objects in a manner suitable to the situation. These patterns abstract the instantiation process, making it more flexible, controlled, and efficient. Here are the creational design patterns:
+
+1. **Singleton Pattern:**
+   - Purpose: Ensures a class has only one instance and provides a global point of access to that instance.
+   - Use case: When you want to limit the number of instances of a class, such as a configuration manager or a logging service.
+
+2. **Factory Method Pattern:**
+   - Purpose: Defines an interface for creating an object but allows subclasses to alter the type of objects that will be created.
+   - Use case: When you need to create objects without specifying the exact class of object that will be created, such as in GUI frameworks for creating different UI elements.
+
+3. **Abstract Factory Pattern:**
+   - Purpose: Provides an interface for creating families of related or dependent objects without specifying their concrete classes.
+   - Use case: When you want to ensure that the created objects work together harmoniously, like creating a set of GUI components for a specific platform (e.g., Windows or macOS).
+
+4. **Builder Pattern:**
+   - Purpose: Separates the construction of a complex object from its representation, allowing the same construction process to create different representations.
+   - Use case: When you have a complex object with many optional components or configuration settings, like constructing an elaborate meal order.
+
+5. **Prototype Pattern:**
+   - Purpose: Creates new objects by copying an existing object (the prototype).
+   - Use case: When you want to create new objects by copying an existing object rather than constructing them from scratch, like creating multiple instances of a document with slight variations.
+
+Each of these creational design patterns addresses different aspects of object creation, and they can be used in various situations to make your code more flexible, maintainable, and scalable. Choosing the right creational pattern depends on your specific requirements and the problem you're trying to solve in your software application.

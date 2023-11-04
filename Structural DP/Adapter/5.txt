@@ -1,0 +1,51 @@
+Certainly! Let's explore another example of the Adapter Design Pattern in the Core Java library, this time using the `java.util.Arrays` class.
+
+**Scenario: Adapting Arrays**
+
+In Java, the `java.util.Arrays` class provides various utility methods for working with arrays. One of these methods is `asList()`, which allows you to convert an array into a `List`. However, arrays and lists have different interfaces, and sometimes you may want to work with arrays using list-like methods.
+
+**Example: Using `Arrays.asList()` as an Adapter**
+
+Consider a scenario where you have an array of integers, but you want to use list-like methods, such as `add()` and `remove()`, on it. You can use `Arrays.asList()` as an adapter to achieve this.
+
+Here's an example:
+
+```java
+import java.util.*;
+
+public class ArraysAsListAdapter {
+    public static void main(String[] args) {
+        // Create an array of integers
+        Integer[] intArray = {1, 2, 3, 4, 5};
+
+        // Use Arrays.asList() as an adapter to work with the array as a List
+        List<Integer> intList = Arrays.asList(intArray);
+
+        // Now, you can use list-like methods on the array
+        System.out.println("Original List: " + intList);
+
+        // Add an element
+        intList.add(6);
+
+        // Remove an element
+        intList.remove(2);
+
+        System.out.println("Modified List: " + intList);
+
+        // Note: Uncommenting the next line will result in an UnsupportedOperationException
+        // intList.add(7); // Throws an UnsupportedOperationException
+    }
+}
+```
+
+In this example:
+
+1. We create an array of integers `intArray` with values from 1 to 5.
+
+2. We use `Arrays.asList(intArray)` to convert the array into a `List<Integer>`. This adapter method allows us to work with the array using list-like methods.
+
+3. We demonstrate using list-like methods such as `add()` and `remove()` on the `intList`, which is backed by the original array.
+
+4. Note that attempting to add an element to the list will result in an `UnsupportedOperationException` because arrays have fixed sizes.
+
+In this scenario, `Arrays.asList()` acts as an adapter, allowing you to work with arrays using list-like methods, which can be convenient when you need to interface arrays with code that expects lists or collections.

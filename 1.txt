@@ -1,0 +1,23 @@
+Question: What are design patterns and why to use them expalin to novoice?
+
+ANswer
+=======
+Design patterns are recurring, proven solutions to common problems that software developers face when designing and building software. They are like templates or blueprints for solving specific types of problems in a way that is both efficient and effective. These patterns capture the collective knowledge and experience of seasoned software developers and provide a structured way to tackle common software design challenges.
+
+Here's an explanation for a novice on why design patterns are used:
+
+1. **Problem-Solving Templates:** Think of design patterns as ready-made solutions to problems that software developers commonly encounter. When you're building software, you often face challenges like how to create objects efficiently, manage relationships between them, or structure your code for maintainability. Design patterns offer tried-and-true solutions to these problems, which can save you time and effort.
+
+2. **Best Practices:** Design patterns embody best practices in software design. They are based on years of experience and have been refined by expert developers. By using design patterns, you're following established guidelines for structuring your code, making it easier for you and your team to understand and maintain your software.
+
+3. **Reusability:** One of the key benefits of design patterns is that they promote code reusability. Once you understand and implement a design pattern, you can use it in multiple parts of your application or in different projects altogether. This reduces code duplication and makes your codebase more efficient and easier to maintain.
+
+4. **Common Vocabulary:** Design patterns provide a common vocabulary for developers to discuss and communicate about software design. When you say "Factory Method" or "Observer Pattern," experienced developers immediately understand the concepts you're referring to, which streamlines communication in development teams.
+
+5. **Scalability:** Using design patterns helps your codebase scale as your project grows. Patterns like the Singleton or Factory Method ensure that you can add new features or components to your software without causing major disruptions to the existing code.
+
+6. **Maintainability:** Design patterns contribute to better code organization and structure, which makes it easier to maintain and extend your software over time. When you follow patterns, your code becomes more predictable and less prone to unexpected issues.
+
+7. **Code Quality:** By using design patterns, you're more likely to produce high-quality code that is well-structured and follows best practices. This can lead to fewer bugs, easier debugging, and a more robust software product.
+
+In summary, design patterns are like tools in a developer's toolkit. They provide pre-built solutions to common problems, help you write better code, and make your development process more efficient and effective. As a novice developer, learning and applying design patterns can significantly improve your software design skills and set you on the path to becoming a more proficient and confident programmer.

@@ -1,0 +1,95 @@
+explain prototype design pattern in java with real time coding examples of software development to novoice
+
+The Prototype Design Pattern is a creational design pattern that allows you to create new objects by copying an existing object, known as the prototype. This pattern is useful when creating an object is more expensive than copying an existing one. Let's go through a real-time example in Java to illustrate the Prototype Design Pattern.
+
+**Example: Cloneable Employees**
+
+Let's say we have an application where we want to create instances of `Employee` objects. The `Employee` class might have various attributes like name, id, designation, etc.
+
+**Step 1: Define the `Employee` class**
+
+```java
+public class Employee implements Cloneable {
+    private String name;
+    private int id;
+    private String designation;
+
+    public Employee(String name, int id, String designation) {
+        this.name = name;
+        this.id = id;
+        this.designation = designation;
+    }
+
+    // Getter methods...
+
+    @Override
+    protected Object clone() throws CloneNotSupportedException {
+        return super.clone();
+    }
+}
+```
+
+Here, the `Employee` class implements the `Cloneable` interface, and it overrides the `clone()` method. The `clone()` method is used to create a copy of the object.
+
+**Step 2: Create a `EmployeeRegistry` to manage prototypes**
+
+```java
+import java.util.HashMap;
+import java.util.Map;
+
+public class EmployeeRegistry {
+    private Map<String, Employee> employeePrototypes;
+
+    public EmployeeRegistry() {
+        employeePrototypes = new HashMap<>();
+
+        // Initialize prototype employees
+        Employee softwareEngineer = new Employee("John Doe", 1, "Software Engineer");
+        Employee manager = new Employee("Jane Smith", 2, "Manager");
+
+        employeePrototypes.put("softwareEngineer", softwareEngineer);
+        employeePrototypes.put("manager", manager);
+    }
+
+    public Employee getEmployeeClone(String type) throws CloneNotSupportedException {
+        return (Employee) employeePrototypes.get(type).clone();
+    }
+}
+```
+
+In this example, `EmployeeRegistry` acts as a manager for the prototype `Employee` objects. It initializes prototype employees and provides a method `getEmployeeClone(type)` to create a clone of the specified employee type.
+
+**Step 3: Using the Prototype Pattern**
+
+Now, let's use the prototype pattern to create employee instances:
+
+```java
+public class PrototypeExample {
+    public static void main(String[] args) throws CloneNotSupportedException {
+        EmployeeRegistry registry = new EmployeeRegistry();
+
+        // Create a clone of a Software Engineer
+        Employee softwareEngineerClone = registry.getEmployeeClone("softwareEngineer");
+        System.out.println("Software Engineer Clone: " + softwareEngineerClone);
+
+        // Create a clone of a Manager
+        Employee managerClone = registry.getEmployeeClone("manager");
+        System.out.println("Manager Clone: " + managerClone);
+    }
+}
+```
+
+**Output:**
+
+```
+Software Engineer Clone: Employee{name='John Doe', id=1, designation='Software Engineer'}
+Manager Clone: Employee{name='Jane Smith', id=2, designation='Manager'}
+```
+
+In this example:
+
+- The `EmployeeRegistry` manages prototype instances of `Employee`.
+- The `Employee` class implements the `Cloneable` interface, allowing it to be cloned.
+- The `getEmployeeClone(type)` method in `EmployeeRegistry` creates a clone of the specified employee type.
+
+This pattern is useful when object creation is more complex, and it's more efficient to copy an existing object rather than creating a new one from scratch. It helps avoid the overhead of repeated object creation logic.

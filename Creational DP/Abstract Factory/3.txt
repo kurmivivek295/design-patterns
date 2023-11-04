@@ -1,0 +1,25 @@
+Difference Factory Pattern and the Abstract Factory Pattern using software-related terms:
+
+**Factory Pattern:**
+
+Imagine you're writing a computer program, and you need to create different types of shapes, such as circles and rectangles.
+
+- In the Factory Pattern, you have a "Shape Factory" class that knows how to create these shapes.
+- When your program needs a shape, you ask the Shape Factory to create it for you.
+- The Factory Pattern helps you create individual objects (shapes) without worrying about how they're constructed. It's like using a vending machine to get a snack; you select what you want, and the vending machine gives it to you without you needing to know how it's made.
+
+**Abstract Factory Pattern:**
+
+Now, let's say your program has expanded, and you're not just working with shapes; you're also dealing with different colors for those shapes, like red and blue. You want to make sure that when you create a shape, you can also set its color consistently.
+
+- This is where the Abstract Factory Pattern comes in. It helps you create not just shapes but also colors and makes sure they go well together and have a consistent style.
+- You have an "Artistic Factory" that knows how to create both shapes and colors with an artistic theme.
+- When your program needs a shape with a specific color, you ask the Artistic Factory to create it for you.
+- The Abstract Factory Pattern ensures that the shape and color match and belong to the same artistic style.
+
+In software terms:
+
+- The Factory Pattern is like a simple object creation process, where you create different types of objects (shapes).
+- The Abstract Factory Pattern is like having a complete system for creating related objects (shapes and colors) in an organized way, ensuring they all match a specific theme or style.
+
+The key difference is that the Factory Pattern deals with creating individual objects, while the Abstract Factory Pattern deals with creating families of related objects that have a consistent style.

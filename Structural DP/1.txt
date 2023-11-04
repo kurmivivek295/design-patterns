@@ -1,0 +1,55 @@
+Structural design patterns in Java are a category of design patterns that focus on the composition of classes and objects to form larger structures. These patterns help in creating relationships between objects, making your code more flexible and efficient. Here's a list of common structural design patterns in Java:
+
+1. **Adapter Pattern:**
+   - Allows the interface of an existing class to be used as another interface.
+   - Helps in making classes work together that couldn't otherwise because of incompatible interfaces.
+   
+2. **Bridge Pattern:**
+   - Separates an object’s abstraction from its implementation so that the two can vary independently.
+   - Useful when you want to avoid a permanent binding between an abstraction and its implementation.
+
+3. **Composite Pattern:**
+   - Composes objects into a tree structure to represent part-whole hierarchies.
+   - Allows clients to treat individual objects and compositions of objects uniformly.
+
+4. **Decorator Pattern:**
+   - Attaches additional responsibilities to an object dynamically.
+   - Provides a flexible alternative to subclassing for extending functionality.
+
+5. **Facade Pattern:**
+   - Provides a simplified interface to a larger body of code, like a library or complex subsystem.
+   - Hides the complexities of the subsystem and provides a more convenient interface.
+
+6. **Flyweight Pattern:**
+   - Minimizes memory usage or computational expenses by sharing as much as possible with related objects.
+   - Useful when you have a large number of similar objects to create.
+
+7. **Proxy Pattern:**
+   - Provides a surrogate or placeholder for another object to control access to it.
+   - Useful for controlling access, managing resources, or providing lazy initialization.
+
+8. **Memento Pattern:**
+   - Captures and externalizes an object's internal state so that the object can be restored to this state later.
+   - Useful for implementing undo/redo functionality or preserving the state of an object.
+
+9. **Composite Pattern:**
+   - Composes objects into tree structures to represent part-whole hierarchies.
+   - Allows clients to treat individual objects and compositions of objects uniformly.
+
+10. **Decorator Pattern:**
+    - Attaches additional responsibilities to an object dynamically.
+    - Provides a flexible alternative to subclassing for extending functionality.
+
+11. **Proxy Pattern:**
+    - Provides a surrogate or placeholder for another object to control access to it.
+    - Useful for controlling access, managing resources, or providing lazy initialization.
+
+12. **Chain of Responsibility Pattern:**
+    - Passes a request along a chain of handlers.
+    - Allows multiple objects to handle a request without the sender needing to know which object will ultimately process it.
+
+13. **Command Pattern:**
+    - Encapsulates a request as an object, thereby allowing for parameterization of clients with queues, requests, and operations.
+    - Useful for implementing undo/redo functionality, or queuing requests.
+
+These structural design patterns provide various techniques for organizing and composing classes and objects in your Java applications to improve code flexibility, maintainability, and scalability. Depending on the specific problem you're trying to solve, you can choose the most appropriate structural pattern.

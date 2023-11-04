@@ -1,0 +1,117 @@
+The Adapter Design Pattern is a structural design pattern that allows objects with incompatible interfaces to work together. It acts as a bridge between two incompatible interfaces, making them compatible without changing their source code. This pattern is particularly useful when integrating new features or libraries into existing code or when you have to work with legacy systems.
+
+Sure, let's explore another example using a more everyday scenario: charging devices with different types of plugs.
+
+**Real-time Scenario:**
+
+Imagine you have a universal charger that can charge multiple devices with different types of plugs, such as Type A, Type B, and Type C. However, your charger has a single type of socket. To make all devices compatible with your charger, you can use the Adapter Pattern.
+
+**Step 1: Define the Target Interface**
+
+In this case, the target interface defines the method for charging a device.
+
+```java
+public interface Charger {
+    void charge();
+}
+```
+
+**Step 2: Create the Adaptee Classes**
+
+You have three Adaptee classes, each representing a device with a different plug type: `TypeACharger`, `TypeBCharger`, and `TypeCCharger`.
+
+```java
+public class TypeACharger {
+    public void plugTypeA() {
+        System.out.println("Device with Type A plug is charging.");
+    }
+}
+
+public class TypeBCharger {
+    public void plugTypeB() {
+        System.out.println("Device with Type B plug is charging.");
+    }
+}
+
+public class TypeCCharger {
+    public void plugTypeC() {
+        System.out.println("Device with Type C plug is charging.");
+    }
+}
+```
+
+**Step 3: Create the Adapter Classes**
+
+Now, you create adapter classes, `TypeAAdapter`, `TypeBAdapter`, and `TypeCAdapter`, to make all three Adaptees compatible with the `Charger` interface.
+
+```java
+public class TypeAAdapter implements Charger {
+    private TypeACharger typeACharger;
+
+    public TypeAAdapter(TypeACharger typeACharger) {
+        this.typeACharger = typeACharger;
+    }
+
+    @Override
+    public void charge() {
+        typeACharger.plugTypeA();
+    }
+}
+
+public class TypeBAdapter implements Charger {
+    private TypeBCharger typeBCharger;
+
+    public TypeBAdapter(TypeBCharger typeBCharger) {
+        this.typeBCharger = typeBCharger;
+    }
+
+    @Override
+    public void charge() {
+        typeBCharger.plugTypeB();
+    }
+}
+
+public class TypeCAdapter implements Charger {
+    private TypeCCharger typeCCharger;
+
+    public TypeCAdapter(TypeCCharger typeCCharger) {
+        this.typeCCharger = typeCCharger;
+    }
+
+    @Override
+    public void charge() {
+        typeCCharger.plugTypeC();
+    }
+}
+```
+
+**Step 4: Use the Adapters in Client Code**
+
+You can now use the `Charger` interface and the adapter classes to charge devices with different plug types using the universal charger.
+
+```java
+public class ChargerApp {
+    public static void main(String[] args) {
+        TypeACharger typeACharger = new TypeACharger();
+        TypeBCharger typeBCharger = new TypeBCharger();
+        TypeCCharger typeCCharger = new TypeCCharger();
+
+        Charger adapter1 = new TypeAAdapter(typeACharger);
+        Charger adapter2 = new TypeBAdapter(typeBCharger);
+        Charger adapter3 = new TypeCAdapter(typeCCharger);
+
+        adapter1.charge();
+        adapter2.charge();
+        adapter3.charge();
+    }
+}
+```
+
+In this example:
+
+- The client code (ChargerApp) expects to work with the `Charger` interface.
+- The adapter classes (`TypeAAdapter`, `TypeBAdapter`, and `TypeCAdapter`) bridge the gap between the interface and the devices with different plug types.
+- You can charge devices using the adapter classes, which internally use the appropriate method for each plug type.
+
+This example illustrates how the Adapter Design Pattern allows you to make different devices compatible with a universal charger without changing the charger's design, making your system more versatile and user-friendly.
+
